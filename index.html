@@ -1,0 +1,551 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f7f6ef" />
+    <meta
+      name="description"
+      content="拾花，在一间安静的 3D 花艺工作室，亲手插出喜欢的日常。"
+    />
+    <title>拾花 · 花艺工作室</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Noto+Serif+SC:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <svg
+      class="svg-definitions"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+    >
+      <defs>
+        <symbol id="icon-flower" viewBox="0 0 32 40">
+          <path
+            d="M16 37V17M16 28C5 28 4 20 4 20c9-1 12 8 12 8Zm0-5c10 0 12-8 12-8-9-1-12 8-12 8ZM16 17c-8 0-11-7-7-10 1-5 7-6 9-2 6-2 10 4 6 7-1 4-4 5-8 5Z"
+          />
+        </symbol>
+        <symbol id="icon-arrow" viewBox="0 0 24 24">
+          <path d="M5 12h14m-5-5 5 5-5 5" />
+        </symbol>
+        <symbol id="icon-expand" viewBox="0 0 24 24">
+          <path d="M9 4H4v5m11-5h5v5M4 15v5h5m11-5v5h-5" />
+        </symbol>
+        <symbol id="icon-orbit" viewBox="0 0 24 24">
+          <ellipse
+            cx="12"
+            cy="12"
+            rx="9"
+            ry="4"
+            transform="rotate(-30 12 12)"
+          />
+          <path d="m17 3 3 2-1 4" />
+          <circle cx="12" cy="12" r="2" />
+        </symbol>
+        <symbol id="icon-reset" viewBox="0 0 24 24">
+          <path d="M4 10a8 8 0 1 1 1 8M4 4v6h6" />
+        </symbol>
+        <symbol id="icon-undo" viewBox="0 0 24 24">
+          <path d="m9 5-5 5 5 5M4 10h10a5 5 0 0 1 0 10" />
+        </symbol>
+        <symbol id="icon-redo" viewBox="0 0 24 24">
+          <path d="m15 5 5 5-5 5m5-5H10a5 5 0 0 0 0 10" />
+        </symbol>
+        <symbol id="icon-save" viewBox="0 0 24 24">
+          <path d="M6 4h12v17l-6-4-6 4Z" />
+        </symbol>
+        <symbol id="icon-search" viewBox="0 0 24 24">
+          <circle cx="10.5" cy="10.5" r="6.5" />
+          <path d="m16 16 4 4" />
+        </symbol>
+        <symbol id="icon-close" viewBox="0 0 24 24">
+          <path d="m6 6 12 12M18 6 6 18" />
+        </symbol>
+        <symbol id="icon-copy" viewBox="0 0 24 24">
+          <rect x="8" y="8" width="12" height="12" rx="2" />
+          <path d="M15 8V4H4v11h4" />
+        </symbol>
+        <symbol id="icon-trash" viewBox="0 0 24 24">
+          <path d="M4 6h16M9 6V3h6v3M6 6l1 15h10l1-15M10 10v7m4-7v7" />
+        </symbol>
+      </defs>
+    </svg>
+    <header class="site-header">
+      <a class="brand" href="/" aria-label="拾花工作室首页"
+        ><svg class="brand-mark"><use href="#icon-flower" /></svg
+        ><span
+          ><strong>拾花<span class="brand-period">.</span></strong
+          ><small>FLEUR ATELIER</small></span
+        ></a
+      >
+      <nav aria-label="主导航">
+        <button type="button" id="studio-nav" class="nav-link is-active">
+          工作台</button
+        ><button type="button" id="gallery-button" class="nav-link">
+          我的作品</button
+        ><button type="button" id="guide-button" class="nav-link">
+          花艺小笺
+        </button>
+      </nav>
+      <div class="header-actions">
+        <span class="header-note">让美好，自然发生</span
+        ><button type="button" id="save-button" class="primary-button">
+          <svg><use href="#icon-save" /></svg>保存作品
+        </button>
+      </div>
+    </header>
+    <main class="atelier">
+      <section class="page-heading">
+        <div>
+          <p class="eyebrow">A LITTLE FLOWER, A LITTLE JOY</p>
+          <h1>把日子，插成喜欢的样子。</h1>
+          <p class="heading-subtitle">不赶时间，只与花相处。</p>
+        </div>
+        <span class="space-label">CREATIVE SPACE <span>/</span> 01</span>
+      </section>
+      <div class="workspace">
+        <aside class="catalog panel" aria-label="花材与花器">
+          <div class="panel-heading">
+            <h2>花材集</h2>
+            <span class="mini-label">THE COLLECTION</span>
+          </div>
+          <div class="catalog-tabs">
+            <button type="button" data-tab="flowers" class="is-active">
+              花材 <span>06</span></button
+            ><button type="button" data-tab="vases">
+              花器 <span>04</span>
+            </button>
+          </div>
+          <label class="search-box"
+            ><svg><use href="#icon-search" /></svg
+            ><input
+              id="catalog-search"
+              type="search"
+              placeholder="寻找一枝花…"
+              aria-label="搜索花材"
+          /></label>
+          <div id="category-filters" class="category-filters">
+            <button type="button" data-category="all" class="is-active">
+              全部</button
+            ><button type="button" data-category="main">主花</button
+            ><button type="button" data-category="filler">配花</button
+            ><button type="button" data-category="greenery">绿叶</button>
+          </div>
+          <div id="flower-grid" class="catalog-grid"></div>
+          <div id="vase-grid" class="catalog-grid" hidden></div>
+          <p class="catalog-footnote">
+            轻点一枝花，让灵感生长<svg><use href="#icon-arrow" /></svg>
+          </p>
+        </aside>
+        <section id="stage" aria-label="三维花艺工作台">
+          <div id="scene-container"></div>
+          <div id="loading">
+            <span class="loading-flower"
+              ><svg><use href="#icon-flower" /></svg
+            ></span>
+            <p>花正在慢慢盛开…</p>
+          </div>
+          <div class="stage-top">
+            <div>
+              <span class="stage-mode">自由创作</span
+              ><span class="live-label"><i></i>实时 3D</span>
+            </div>
+            <button
+              type="button"
+              id="fullscreen-button"
+              class="icon-button"
+              title="沉浸模式"
+              aria-label="切换沉浸模式"
+            >
+              <svg><use href="#icon-expand" /></svg>
+            </button>
+          </div>
+          <div class="stage-bottom">
+            <div class="artwork-caption">
+              <span class="mini-label">MY LITTLE ARRANGEMENT</span
+              ><input
+                id="artwork-name"
+                value="一隅春光"
+                aria-label="作品名称"
+                maxlength="30"
+              />
+              <p>
+                <span id="stem-count">0</span> 枝花材<span
+                  class="caption-separator"
+                  >·</span
+                >一份属于你的美好
+              </p>
+            </div>
+            <button type="button" id="clear-button">清空</button>
+          </div>
+          <div class="stage-toolbar" aria-label="视角与历史操作">
+            <button
+              type="button"
+              id="orbit-button"
+              class="icon-button"
+              title="旋转视角"
+              aria-label="旋转视角"
+            >
+              <svg><use href="#icon-orbit" /></svg></button
+            ><button
+              type="button"
+              id="reset-camera"
+              class="icon-button"
+              title="重置视角"
+              aria-label="重置视角"
+            >
+              <svg><use href="#icon-reset" /></svg></button
+            ><span class="toolbar-divider"></span
+            ><button
+              type="button"
+              id="undo-button"
+              class="icon-button"
+              title="撤销"
+              aria-label="撤销"
+            >
+              <svg><use href="#icon-undo" /></svg></button
+            ><button
+              type="button"
+              id="redo-button"
+              class="icon-button"
+              title="重做"
+              aria-label="重做"
+            >
+              <svg><use href="#icon-redo" /></svg>
+            </button>
+          </div>
+          <p id="scene-hint">拖动空白处旋转 · 滚轮缩放 · 点选花朵调整</p>
+        </section>
+        <aside class="inspector panel" aria-label="花材调整">
+          <div class="panel-heading">
+            <h2>花枝细语</h2>
+            <span class="mini-label">EDIT YOUR STEM</span>
+          </div>
+          <div id="selection-empty" hidden>
+            <svg><use href="#icon-flower" /></svg>
+            <h3>每一枝，都有自己的姿态</h3>
+            <p>点选画面中的一朵花，<br />调整它的颜色、长短与方向。</p>
+          </div>
+          <div id="selection-controls">
+            <div class="selected-flower">
+              <img id="selected-preview" alt="选中花材" />
+              <div>
+                <h3 id="selected-name">花园玫瑰</h3>
+                <p id="selected-latin">Garden rose</p>
+                <span class="selected-tag">正在编辑</span>
+              </div>
+            </div>
+            <p id="selected-description">层层舒展的花瓣，藏着温柔的心事。</p>
+            <div class="control-group">
+              <label>花朵颜色</label>
+              <div id="color-swatches" class="color-swatches"></div>
+            </div>
+            <div class="slider-control">
+              <label for="height-control"
+                >花枝高度<output id="height-value">93%</output></label
+              ><input
+                type="range"
+                id="height-control"
+                min=".65"
+                max="1.35"
+                step=".01"
+                value=".93"
+              />
+            </div>
+            <div class="slider-control">
+              <label for="tilt-control"
+                >倾斜角度<output id="tilt-value">13°</output></label
+              ><input
+                type="range"
+                id="tilt-control"
+                min="0"
+                max="42"
+                step="1"
+                value="13"
+              />
+            </div>
+            <div class="slider-control">
+              <label for="rotation-control"
+                >朝向<output id="rotation-value">77°</output></label
+              ><input
+                type="range"
+                id="rotation-control"
+                min="0"
+                max="360"
+                step="1"
+                value="77"
+              />
+            </div>
+            <div class="position-control">
+              <label>微调位置</label>
+              <div>
+                <button
+                  type="button"
+                  id="move-left"
+                  title="向左移动"
+                  aria-label="向左移动"
+                >
+                  ←</button
+                ><button
+                  type="button"
+                  id="move-back"
+                  title="向后移动"
+                  aria-label="向后移动"
+                >
+                  ↑</button
+                ><button
+                  type="button"
+                  id="move-forward"
+                  title="向前移动"
+                  aria-label="向前移动"
+                >
+                  ↓</button
+                ><button
+                  type="button"
+                  id="move-right"
+                  title="向右移动"
+                  aria-label="向右移动"
+                >
+                  →
+                </button>
+              </div>
+            </div>
+            <div class="stem-actions">
+              <button type="button" id="duplicate-button">
+                <svg><use href="#icon-copy" /></svg>复制花枝</button
+              ><button type="button" id="remove-button">
+                <svg><use href="#icon-trash" /></svg>移除
+              </button>
+            </div>
+          </div>
+          <div class="vase-section">
+            <div class="section-label">
+              <span>当前花器</span
+              ><button type="button" id="change-vase">
+                更换 <span>↗</span>
+              </button>
+            </div>
+            <div class="current-vase">
+              <img id="current-vase-image" alt="当前花器" />
+              <div>
+                <h3 id="current-vase-name">素白陶瓶</h3>
+                <p>盛放日常的小美好</p>
+              </div>
+            </div>
+          </div>
+          <div class="background-section">
+            <div class="section-label">
+              <span>空间底色</span><span class="mini-label">AMBIENCE</span>
+            </div>
+            <div id="background-swatches">
+              <button
+                type="button"
+                data-background="linen"
+                class="is-active"
+                aria-label="亚麻白背景"
+                title="亚麻白"
+              >
+                <span style="--swatch: #e9e6dc"></span>亚麻白</button
+              ><button
+                type="button"
+                data-background="sage"
+                aria-label="鼠尾草背景"
+                title="鼠尾草"
+              >
+                <span style="--swatch: #dbe0d4"></span>鼠尾草</button
+              ><button
+                type="button"
+                data-background="rose"
+                aria-label="浅玫瑰背景"
+                title="浅玫瑰"
+              >
+                <span style="--swatch: #eadbd5"></span>浅玫瑰
+              </button>
+            </div>
+          </div>
+        </aside>
+      </div>
+      <section class="inspiration">
+        <div class="inspiration-heading">
+          <h2>寻找一点灵感 <span>A PLACE TO BEGIN</span></h2>
+          <p>从一束花开始，慢慢成为你的样子。</p>
+        </div>
+        <div id="preset-list"></div>
+      </section>
+      <footer class="site-footer">
+        <p>
+          <svg><use href="#icon-flower" /></svg>花不说话，却把生活说得很美。
+        </p>
+        <div class="footer-meta">
+          <span
+            >用鼠标探索 · 用心意创作<span class="footer-dot">·</span> MADE WITH A
+            LITTLE LOVE</span
+          >
+          <button
+            id="notices-button"
+            type="button"
+            class="footer-link"
+            aria-haspopup="dialog"
+            aria-controls="notices-dialog"
+          >
+            第三方许可
+          </button>
+        </div>
+      </footer>
+    </main>
+    <dialog
+      id="notices-dialog"
+      class="wide-dialog notices-dialog"
+      aria-labelledby="notices-title"
+      aria-describedby="notices-intro"
+    >
+      <button
+        type="button"
+        data-close-dialog
+        class="dialog-close icon-button"
+        aria-label="关闭"
+        autofocus
+      >
+        <svg><use href="#icon-close" /></svg>
+      </button>
+      <p class="eyebrow">THIRD PARTY NOTICES</p>
+      <h2 id="notices-title">第三方许可与声明</h2>
+      <p id="notices-intro" class="dialog-intro">
+        感谢开源项目与字体作者，让这间花艺工作室成为可能。
+        <a
+          id="notices-source"
+          class="notices-source"
+          href="%BASE_URL%THIRD_PARTY_NOTICES.txt"
+          target="_blank"
+          rel="noopener"
+          >查看原文（新窗口）</a
+        >
+      </p>
+      <pre
+        id="notices-content"
+        class="notices-content"
+        tabindex="0"
+        role="region"
+        aria-label="第三方许可全文"
+      >正在读取许可声明…</pre>
+    </dialog>
+    <dialog id="save-dialog">
+      <button
+        type="button"
+        data-close-dialog
+        class="dialog-close icon-button"
+        aria-label="关闭"
+      >
+        <svg><use href="#icon-close" /></svg>
+      </button>
+      <p class="eyebrow">KEEP A LITTLE BEAUTY</p>
+      <h2>把这一刻，好好收藏。</h2>
+      <img id="save-preview" class="save-preview" alt="作品预览" />
+      <form id="save-form">
+        <label for="save-name">为作品起个名字</label
+        ><input
+          id="save-name"
+          maxlength="30"
+          required
+          autocomplete="off"
+        /><button id="save-submit" type="submit" class="primary-button">
+          保存到我的作品</button
+        ><button id="download-button" type="button" class="secondary-button">
+          下载高清图片</button
+        ><small>作品保存在当前浏览器</small>
+      </form>
+    </dialog>
+    <dialog id="gallery-dialog" class="wide-dialog">
+      <button
+        type="button"
+        data-close-dialog
+        class="dialog-close icon-button"
+        aria-label="关闭"
+      >
+        <svg><use href="#icon-close" /></svg>
+      </button>
+      <p class="eyebrow">YOUR BOTANICAL JOURNAL</p>
+      <h2>我的作品</h2>
+      <p class="dialog-intro">收藏每一次与花相处的时光。</p>
+      <div id="gallery-list"></div>
+    </dialog>
+    <dialog id="guide-dialog">
+      <button
+        type="button"
+        data-close-dialog
+        class="dialog-close icon-button"
+        aria-label="关闭"
+      >
+        <svg><use href="#icon-close" /></svg>
+      </button>
+      <p class="eyebrow">A SMALL GUIDE TO SLOW LIVING</p>
+      <h2>花艺小笺</h2>
+      <p class="dialog-intro">没有标准答案，喜欢就是最好的花艺。</p>
+      <ol class="guide-steps">
+        <li>
+          <span>01</span>
+          <div>
+            <h3>挑一枝喜欢的花</h3>
+            <p>
+              点击左侧花材卡片，将花枝放入花器。也可以从下方的灵感花束开始。
+            </p>
+          </div>
+        </li>
+        <li>
+          <span>02</span>
+          <div>
+            <h3>让每枝花自在舒展</h3>
+            <p>
+              点击画面中的花朵选中它，用右侧滑块调整高度、倾斜与朝向，还能更换花色。
+            </p>
+          </div>
+        </li>
+        <li>
+          <span>03</span>
+          <div>
+            <h3>换个角度，发现美</h3>
+            <p>
+              拖动画面空白处旋转视角，滚动鼠标滚轮拉近或拉远。工具栏可重置视角或撤销操作。
+            </p>
+          </div>
+        </li>
+        <li>
+          <span>04</span>
+          <div>
+            <h3>留下属于你的作品</h3>
+            <p>
+              点击「保存作品」，为花束命名并保存到当前浏览器，也可以下载图片留作纪念。
+            </p>
+          </div>
+        </li>
+      </ol>
+    </dialog>
+    <dialog id="clear-dialog" class="small-dialog">
+      <button
+        type="button"
+        data-close-dialog
+        class="dialog-close icon-button"
+        aria-label="关闭"
+      >
+        <svg><use href="#icon-close" /></svg>
+      </button>
+      <p class="eyebrow">A FRESH START</p>
+      <h2>留白，也是新的开始。</h2>
+      <p class="dialog-intro">
+        要移除工作台上的所有花枝吗？<br />清空后仍可以使用撤销找回。
+      </p>
+      <div class="dialog-actions">
+        <button type="button" data-close-dialog class="secondary-button">
+          再想一想</button
+        ><button type="button" id="confirm-clear" class="primary-button">
+          清空花枝
+        </button>
+      </div>
+    </dialog>
+    <div id="toast" role="status" aria-live="polite"></div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
