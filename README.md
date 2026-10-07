@@ -2,6 +2,10 @@
 
 一间可以慢慢创作的网页版 3D 花艺工作室。使用 TypeScript、Three.js 与 Vite；花瓣、枝叶、花器和细微纹理均由程序生成，不依赖花材图片或外部 3D 模型。
 
+## 在线地址
+
+https://evegoodevening.github.io/flower-arranging/
+
 ## 运行
 
 需要 Node.js 20.19+ 或 22.12+。
@@ -20,11 +24,19 @@ npm run preview
 
 生产文件生成到 `dist/`，可部署到普通静态网站托管服务。需要支持 WebGL 2 的现代浏览器；界面适配桌面和手机。Google Fonts 不可用时使用系统字体，不影响插花功能。
 
-## 部署到 GitHub Pages
+## 截图
 
-部署工作流位于 `.github/workflows/deploy-pages.yml`，使用 **`main` 分支**：推送到 `main` 时自动构建和部署，也可在 Actions 页面手动运行「Deploy to GitHub Pages」。
+### 桌面工作台
 
-首次部署前，在仓库 **Settings → Pages → Build and deployment → Source** 中选择 **GitHub Actions**，然后推送代码或手动运行工作流。工作流使用 Node.js 22、`npm ci` 和 `npm run build`，根据 Pages 配置设置 Vite 的资源路径，并发布 `dist/`；支持仓库子路径和自定义域名。部署地址可在工作流的 `github-pages` 环境中查看。
+![花材目录、3D 花束与花枝调整面板](docs/screenshots/desktop.png)
+
+### 沉浸模式
+
+![「落日花园」灵感花束的沉浸视图](docs/screenshots/immersive.png)
+
+### 手机端
+
+<img src="docs/screenshots/mobile.png" alt="手机端工作台与「月光白」灵感花束" width="390" />
 
 ## 玩法
 
